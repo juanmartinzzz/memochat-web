@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #121212;
+  background-color: #f5f5f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+}
+
+/* Custom classes */
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300 text-center;
+  }
+
+  .btn-primary {
+    @apply btn bg-black text-white hover:bg-opacity-80;
+  }
+
+  .btn-outline {
+    @apply btn bg-white text-black border-2 border-black hover:bg-black hover:text-white;
+  }
+
+  .section {
+    @apply py-16 px-4 md:py-24 md:px-8 max-w-7xl mx-auto;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-8 text-primary;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-secondary to-gold bg-clip-text text-transparent animate-gradient-x;
+  }
+
+  .retro-card {
+    @apply bg-white p-6 rounded-lg border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+  }
+}
+
+.test {
+  border: 2px dotted red;
+}
