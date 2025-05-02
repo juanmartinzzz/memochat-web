@@ -1,0 +1,12 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+Have a bias towards creating a separate files and component to package specific functionality. Let's make use composition.
+
+If you think the component represents a 'screen' in the application, create it under the 'src/screens' directory
+
+If you think the component will be reused accross the entire application, create it under the 'src/components' directory.
+
+Do not use the index file pattern or barrel pattern. Import components directly from the file where they are defined. This reduces extra file complexity.

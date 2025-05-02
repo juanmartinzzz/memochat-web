@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Check, Star, User } from 'lucide-react'
-import { SiAuth0, SiInstagram, SiMastercard, SiVisa, SiX } from '@icons-pack/react-simple-icons'
+import { SiInstagram, SiX } from '@icons-pack/react-simple-icons'
+import { useNavigate } from 'react-router-dom'
 
 const CassetteTapeElements = () => {
   return (
     <>
       {/* Cassette tape holes */}
-      <div className="absolute top-1/2 left-[96px] -translate-y-1/2 w-24 h-24 rounded-full bg-gray-900/20 border-2 border-white/10" />
-      <div className="absolute top-1/2 left-[104px] -translate-y-1/2 w-20 h-20 rounded-full bg-gray-900/20 border-2 border-white/10" />
-      <div className="absolute top-1/2 right-[96px] -translate-y-1/2 w-24 h-24 rounded-full bg-gray-900/20 border-2 border-white/10" />
-      <div className="absolute top-1/2 right-[104px] -translate-y-1/2 w-20 h-20 rounded-full bg-gray-900/20 border-2 border-white/10" />
+      <div className="absolute top-1/2 left-[10%] -translate-y-1/2 w-24 h-24 rounded-full bg-gray-900/20 border-2 border-white/10" />
+      <div className="absolute top-1/2 left-[10.6%] -translate-y-1/2 w-20 h-20 rounded-full bg-gray-900/20 border-2 border-white/10" />
+      <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-24 h-24 rounded-full bg-gray-900/20 border-2 border-white/10" />
+      <div className="absolute top-1/2 right-[10.6%] -translate-y-1/2 w-20 h-20 rounded-full bg-gray-900/20 border-2 border-white/10" />
 
       {/* Cassette tape label */}
       <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-1/3 h-24 bg-gradient-to-r from-gray-900/30 0 via-gray-900/0 to-gray-900/30 border border-white/10" />
@@ -51,6 +52,7 @@ const CassetteTapeElements = () => {
 }
 
 const SignupForm = ({ id }) => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     nickname: '',
     email: '',
@@ -60,13 +62,23 @@ const SignupForm = ({ id }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [isInputFocused, setIsInputFocused] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
+  const handleFocus = () => {
+    setIsInputFocused(true)
+  }
+
+  const handleBlur = () => {
+    setIsInputFocused(false)
+  }
+
   const handleSubmit = (e) => {
+    console.log('handleSubmit')
     e.preventDefault()
     setError('')
 
@@ -82,19 +94,11 @@ const SignupForm = ({ id }) => {
 
     setIsSubmitting(true)
 
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
+    // Store form data in localStorage for CompleteSetup page
+    localStorage.setItem('signupData', JSON.stringify(formData))
 
-      setTimeout(() => {
-        setIsSubmitted(false)
-        setFormData({
-          nickname: '',
-          email: '',
-          lovedOneNickname: ''
-        })
-      }, 5000)
-    }, 1500)
+    // Navigate to CompleteSetup page
+    navigate('/complete-setup')
   }
 
   return (
@@ -122,7 +126,7 @@ const SignupForm = ({ id }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white/10 backdrop-blur-sm p-8 border border-white/20 relative overflow-hidden"
+          className={`backdrop-blur-sm p-8 relative overflow-hidden transition-opacity duration-[2000ms] ${isInputFocused ? 'bg-black/60' : 'bg-black/0'}`}
         >
           {isSubmitted ? (
             <motion.div
@@ -149,12 +153,14 @@ const SignupForm = ({ id }) => {
                     name="nickname"
                     value={formData.nickname}
                     onChange={handleChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     className="w-full bg-transparent border-b-2 border-white/30 px-0 py-2 focus:outline-none focus:border-gold transition-colors peer placeholder-transparent"
                     placeholder="Your nickname"
                   />
                   <label
                     htmlFor={`nickname-${id}`}
-                    className="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm text-white/70"
+                    className="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm text-white"
                   >
                     Your name or nickname
                   </label>
@@ -167,12 +173,14 @@ const SignupForm = ({ id }) => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     className="w-full bg-transparent border-b-2 border-white/30 px-0 py-2 focus:outline-none focus:border-gold transition-colors peer placeholder-transparent"
                     placeholder="Your email"
                   />
                   <label
                     htmlFor={`email-${id}`}
-                    className="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm text-white/70"
+                    className="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm text-white"
                   >
                     Your email
                   </label>
@@ -186,12 +194,14 @@ const SignupForm = ({ id }) => {
                   name="lovedOneNickname"
                   value={formData.lovedOneNickname}
                   onChange={handleChange}
+                  onFocus={handleFocus}
+                  onBlur={handleBlur}
                   className="w-full bg-transparent border-b-2 border-white/30 px-0 py-2 focus:outline-none focus:border-gold transition-colors peer placeholder-transparent"
                   placeholder="Loved one's nickname"
                 />
                 <label
                   htmlFor={`lovedOneNickname-${id}`}
-                  className="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm text-white/70"
+                  className="absolute left-0 -top-3.5 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-sm text-white"
                 >
                   Loved one's name or nickname
                 </label>
@@ -216,7 +226,7 @@ const SignupForm = ({ id }) => {
                 ) : (
                   <>
                     Get Started
-                    <span className="absolute inset-0 h-full w-full scale-0 rounded-full bg-white/20 transition-transform duration-300 group-hover:scale-100" />
+                    <span className="absolute inset-0 h-full w-full scale-0 rounded-full bg-white/10 transition-transform duration-300 group-hover:scale-100" />
                   </>
                 )}
               </motion.button>
@@ -226,7 +236,6 @@ const SignupForm = ({ id }) => {
 
         <p className="text-xs text-center text-white/60 mt-4">
           By signing up, you agree to our Terms of Service and Privacy Policy.
-          {/* We'll occasionally send you updates about Memochat. */}
         </p>
 
         <div className="flex justify-center mt-6 space-x-6">

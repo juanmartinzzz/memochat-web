@@ -4,10 +4,18 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 
+const strictMode = false;
+
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  strictMode ? (
+    <StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StrictMode>
+  ) : (
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>,
+  )
 )

@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-secondary to-gold bg-clip-text text-transparent animate-gradient-x;
+    @apply bg-gradient-to-r from-secondary to-gold bg-clip-text text-transparent animate-gradient-x;
   }
 
   .retro-card {
