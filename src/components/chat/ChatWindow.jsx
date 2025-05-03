@@ -31,7 +31,7 @@ const ChatWindow = ({ messages, className = '' }) => {
   return (
     <div
       ref={chatContainerRef}
-      className={`space-y-4 min-h-[512px] max-h-[calc(100vh-300px)] overflow-y-auto pr-2 ${className}`}
+      className={`py-4 space-y-4 min-h-[512px] max-h-[calc(100vh-300px)] overflow-y-auto pr-2 ${className}`}
     >
       {renderedMessages.map((message, index) => (
         <ChatMessage

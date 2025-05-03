@@ -1,0 +1,962 @@
+[
+  {
+    "table_name": "career_types",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "career_types",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "career_types",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "career_types",
+    "column_name": "label",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "column_default": null
+  },
+  {
+    "table_name": "career_types",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "color",
+    "is_nullable": "YES",
+    "data_type": "character varying",
+    "character_maximum_length": 7,
+    "column_default": null
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "description",
+    "is_nullable": "YES",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "emoji",
+    "is_nullable": "YES",
+    "data_type": "character varying",
+    "character_maximum_length": 10,
+    "column_default": null
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "image_url",
+    "is_nullable": "YES",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "is_enabled",
+    "is_nullable": "YES",
+    "data_type": "boolean",
+    "character_maximum_length": null,
+    "column_default": "true"
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "name",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "column_default": null
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "order_index",
+    "is_nullable": "NO",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "profile_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "chapters",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "education_level_types",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "education_level_types",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "education_level_types",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "education_level_types",
+    "column_name": "label",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "column_default": null
+  },
+  {
+    "table_name": "education_level_types",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "life_stories",
+    "column_name": "collector_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_stories",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "life_stories",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_stories",
+    "column_name": "description",
+    "is_nullable": "YES",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_stories",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "life_stories",
+    "column_name": "legend_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_stories",
+    "column_name": "status",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "column_default": null
+  },
+  {
+    "table_name": "life_stories",
+    "column_name": "title",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 255,
+    "column_default": null
+  },
+  {
+    "table_name": "life_stories",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "life_story_chapters",
+    "column_name": "chapter_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_chapters",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "life_story_chapters",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_chapters",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "life_story_chapters",
+    "column_name": "is_enabled",
+    "is_nullable": "YES",
+    "data_type": "boolean",
+    "character_maximum_length": null,
+    "column_default": "true"
+  },
+  {
+    "table_name": "life_story_chapters",
+    "column_name": "life_story_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_chapters",
+    "column_name": "order_index",
+    "is_nullable": "NO",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_chapters",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "life_story_invites",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "life_story_invites",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_invites",
+    "column_name": "expires_at",
+    "is_nullable": "NO",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_invites",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "life_story_invites",
+    "column_name": "invited_by_profile_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_invites",
+    "column_name": "life_story_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_invites",
+    "column_name": "role",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_invites",
+    "column_name": "token_hash",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 255,
+    "column_default": null
+  },
+  {
+    "table_name": "life_story_invites",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "file_name",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 255,
+    "column_default": null
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "file_size",
+    "is_nullable": "NO",
+    "data_type": "bigint",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "file_url",
+    "is_nullable": "NO",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "message_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "metadata",
+    "is_nullable": "YES",
+    "data_type": "jsonb",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "mime_type",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "column_default": null
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "type",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "column_default": null
+  },
+  {
+    "table_name": "media_content",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "memories",
+    "column_name": "chapter_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memories",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "memories",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memories",
+    "column_name": "description",
+    "is_nullable": "YES",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memories",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "memories",
+    "column_name": "title",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 255,
+    "column_default": null
+  },
+  {
+    "table_name": "memories",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "memory_invites",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "memory_invites",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_invites",
+    "column_name": "expires_at",
+    "is_nullable": "NO",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_invites",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "memory_invites",
+    "column_name": "invited_by_profile_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_invites",
+    "column_name": "memory_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_invites",
+    "column_name": "role",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_invites",
+    "column_name": "token_hash",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 255,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_invites",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "memory_participants",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "memory_participants",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_participants",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "memory_participants",
+    "column_name": "memory_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_participants",
+    "column_name": "profile_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_participants",
+    "column_name": "role",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "column_default": null
+  },
+  {
+    "table_name": "memory_participants",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "messages",
+    "column_name": "content",
+    "is_nullable": "NO",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "messages",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "messages",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "messages",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "messages",
+    "column_name": "memory_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "messages",
+    "column_name": "profile_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "messages",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "nicknames",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "nicknames",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "nicknames",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "nicknames",
+    "column_name": "nickname",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "column_default": null
+  },
+  {
+    "table_name": "nicknames",
+    "column_name": "profile_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "nicknames",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "profile_career_types",
+    "column_name": "career_type_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "profile_career_types",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "profile_career_types",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "profile_career_types",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "profile_career_types",
+    "column_name": "profile_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "profile_career_types",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "birth_date",
+    "is_nullable": "YES",
+    "data_type": "date",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "education_level_type_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "email",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 255,
+    "column_default": null
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "full_name",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "column_default": null
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "phone_number",
+    "is_nullable": "YES",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "column_default": null
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "photo_url",
+    "is_nullable": "YES",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "quick_bio",
+    "is_nullable": "YES",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "profiles",
+    "column_name": "user_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "social_media_handles",
+    "column_name": "created_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "social_media_handles",
+    "column_name": "deleted_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "social_media_handles",
+    "column_name": "handle",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 255,
+    "column_default": null
+  },
+  {
+    "table_name": "social_media_handles",
+    "column_name": "id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": "gen_random_uuid()"
+  },
+  {
+    "table_name": "social_media_handles",
+    "column_name": "platform",
+    "is_nullable": "NO",
+    "data_type": "character varying",
+    "character_maximum_length": 50,
+    "column_default": null
+  },
+  {
+    "table_name": "social_media_handles",
+    "column_name": "profile_id",
+    "is_nullable": "NO",
+    "data_type": "uuid",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "social_media_handles",
+    "column_name": "updated_at",
+    "is_nullable": "YES",
+    "data_type": "timestamp with time zone",
+    "character_maximum_length": null,
+    "column_default": "CURRENT_TIMESTAMP"
+  }
+]

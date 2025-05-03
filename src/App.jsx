@@ -23,40 +23,51 @@ function App() {
 
   return (
     <div className="bg-light text-dark">
-      <Navbar
+      {/* <Navbar
         onAboutClick={() => scrollToSection(aboutRef)}
         onPricingClick={() => scrollToSection(pricingRef)}
         onFeaturesClick={() => scrollToSection(featuresRef)}
         onFeatureCardsClick={() => scrollToSection(featureCardsRef)}
         onHowMemochatWorksClick={() => scrollToSection(howMemochatWorksRef)}
-      />
+      /> */}
 
       <Routes>
         <Route path="/complete-setup" element={<CompleteSetup />} />
         <Route path="/life-story" element={<LifeStory />} />
         <Route path="/" element={
-          <main>
-            <Hero />
-            <SignupForm id="primary-cta" />
-            <div ref={howMemochatWorksRef}>
-              <HowMemochatWorks />
-            </div>
-            <SignupForm id="secondary-cta" />
-            {/* <div ref={featureCardsRef}>
-              <FeatureCards />
-            </div> */}
-            <div ref={pricingRef}>
-              <Pricing />
-            </div>
-            <SignupForm id="tertiary-cta" />
-            <div ref={aboutRef}>
-              <Founder />
-            </div>
-          </main>
+          <>
+            <Navbar
+              onAboutClick={() => scrollToSection(aboutRef)}
+              onPricingClick={() => scrollToSection(pricingRef)}
+              onFeaturesClick={() => scrollToSection(featuresRef)}
+              onFeatureCardsClick={() => scrollToSection(featureCardsRef)}
+              onHowMemochatWorksClick={() => scrollToSection(howMemochatWorksRef)}
+            />
+            <main>
+              <Hero />
+              <SignupForm id="primary-cta" />
+              <div ref={howMemochatWorksRef}>
+                <HowMemochatWorks />
+              </div>
+              <SignupForm id="secondary-cta" />
+              {/* <div ref={featureCardsRef}>
+                <FeatureCards />
+              </div> */}
+              <div ref={pricingRef}>
+                <Pricing />
+              </div>
+              <SignupForm id="tertiary-cta" />
+              <div ref={aboutRef}>
+                <Founder />
+              </div>
+            </main>
+
+            <Footer />
+          </>
         } />
       </Routes>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
