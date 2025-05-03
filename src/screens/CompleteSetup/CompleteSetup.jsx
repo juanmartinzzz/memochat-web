@@ -140,8 +140,8 @@ const CompleteSetup = () => {
 
     /** @TODO later save configuration on Supabase */
 
-    // Move User to the Life Story screen
-    navigate('/life-story')
+    // Move User to Invitation screen
+    navigate('/invitation')
   }
 
   if (!signupData) {

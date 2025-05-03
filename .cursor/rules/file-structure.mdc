@@ -3,7 +3,7 @@ description:
 globs:
 alwaysApply: true
 ---
-Have a bias towards creating a separate files and component to package specific functionality. Let's make use composition.
+Emphasize Component Composition. Almost always create a separate file with 1 component inside said file to package specific functionality of elements in screens, and then use said elements on screens instead of using lots of custom JSX.
 
 If you think the component represents a 'screen' in the application, create it under the 'src/screens' directory
 

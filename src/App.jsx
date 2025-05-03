@@ -10,6 +10,7 @@ import FeatureCards from './components/FeatureCards'
 import HowMemochatWorks from './components/HowMemochatWorks'
 import CompleteSetup from './screens/CompleteSetup/CompleteSetup'
 import LifeStory from './screens/LifeStory/LifeStory'
+import Invitation from './screens/Invitation/Invitation'
 
 function App() {
   const aboutRef = useRef(null)
@@ -34,6 +35,7 @@ function App() {
       <Routes>
         <Route path="/complete-setup" element={<CompleteSetup />} />
         <Route path="/life-story" element={<LifeStory />} />
+        <Route path="/invitation" element={<Invitation />} />
         <Route path="/" element={
           <>
             <Navbar
