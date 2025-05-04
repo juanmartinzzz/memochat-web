@@ -7,7 +7,7 @@ const InvitationImage = ({ onShare }) => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
-        <h2 className="text-xl font-display text-secondary">Share an Image</h2>
+        <h2 className="text-xl font-display text-secondary">Send them an Image</h2>
       </div>
 
       <div className="relative w-full aspect-square mb-4 group-hover:scale-[1.02] transition-transform duration-300">
