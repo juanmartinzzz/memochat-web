@@ -5,7 +5,23 @@ import ChatInput from '../../components/chat/ChatInput'
 import ChapterList from '../../components/chat/ChapterList'
 
 const LifeStory = () => {
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState([
+    {
+      content: <span><strong>Hey there Vibe Combinator legends!</strong> I want to learn how much you know about your family around the time you came into this world.</span>,
+      isUser: false,
+      createdAt: new Date(),
+    },,
+    {
+      content: "Let's start with a simple question that can pack a lot of nostalgia.",
+      isUser: false,
+      createdAt: new Date(),
+    },
+    {
+      content: 'What do you remember about the house or appartment where your family lived when you were born?',
+      isUser: false,
+      createdAt: new Date(),
+    }
+  ])
   const [inputValue, setInputValue] = useState('')
   const [selectedChapter, setSelectedChapter] = useState(1)
   const [previouslySentMessages, setPreviouslySentMessages] = useState([])
@@ -27,11 +43,14 @@ const LifeStory = () => {
 
   const handleSendMessage = () => {
     if (inputValue.trim()) {
+      const signupData = JSON.parse(localStorage.getItem('signupData'))
       const newMessage = {
         content: inputValue,
         isUser: true,
-        timestamp: new Date().toISOString(),
+        senderName: signupData.nickname,
+        createdAt: new Date(),
       }
+      console.log({newMessage})
 
       setMessages(prev => [...prev, newMessage])
       setPreviouslySentMessages(prev => [...prev, inputValue])
@@ -43,7 +62,7 @@ const LifeStory = () => {
     <div className="min-h-screen bg-gray-50 pt-24">
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl p-6">
-          <ChatHeader />
+          <ChatHeader title="Chapter 1: The Roots of Me" status="" />
 
           <ChatWindow messages={messages} />
 

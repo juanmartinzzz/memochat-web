@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^12.7.0",
+    "@supabase/supabase-js": "^2.49.4",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.279.0",
     "qrcode.react": "^4.2.0",

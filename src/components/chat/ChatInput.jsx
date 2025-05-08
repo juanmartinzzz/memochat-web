@@ -1,3 +1,4 @@
+import { Mic, Send } from 'lucide-react'
 import { useRef, useEffect } from 'react'
 
 const ChatInput = ({ inputValue, setInputValue, onSendMessage }) => {
@@ -46,13 +47,20 @@ const ChatInput = ({ inputValue, setInputValue, onSendMessage }) => {
           rows={1}
         />
 
-        <div className="absolute right-2 bottom-2 flex flex-col items-center gap-2">
+        <div className="absolute right-2 bottom-2 flex items-center gap-2">
           <button
             onClick={onSendMessage}
             disabled={!inputValue.trim()}
             className="btn btn-primary"
           >
             Send
+          </button>
+          <button
+            onClick={onSendMessage}
+            disabled={!inputValue.trim()}
+            className="btn btn-primary p-3"
+          >
+            <Mic size={24} />
           </button>
         </div>
       </div>

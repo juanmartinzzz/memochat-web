@@ -3,6 +3,7 @@ import InvitationVideo from '../../components/invitation/InvitationVideo'
 import InvitationImage from '../../components/invitation/InvitationImage'
 import InvitationQR from '../../components/invitation/InvitationQR'
 import InvitationLink from '../../components/invitation/InvitationLink'
+import { useNavigate } from 'react-router-dom'
 
 const phrases = [
   { text: "Share your memories", duration: 2000 },
@@ -15,6 +16,7 @@ const phrases = [
 ]
 
 const Invitation = () => {
+  const navigate = useNavigate()
   const [currentPhrase, setCurrentPhrase] = useState(0)
   const [invitationId] = useState(() => Math.random().toString(36).substring(2, 15))
   const invitationUrl = `${window.location.origin}/join/${invitationId}`
@@ -37,6 +39,7 @@ const Invitation = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-12">
       <InvitationVideo />
+
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-display text-primary mb-6">Bring your loved one to Memochat</h1>
@@ -58,6 +61,15 @@ const Invitation = () => {
           <InvitationImage onShare={handleShareImage} />
           <InvitationQR invitationUrl={invitationUrl} onShare={handleShareQR} />
           <InvitationLink invitationUrl={invitationUrl} onShare={handleShareLink} />
+        </div>
+
+        <div className="text-center mt-12">
+          <button
+            className="btn-primary"
+            onClick={() => navigate('/life-story')}
+          >
+            Move to the next step
+          </button>
         </div>
       </div>
     </div>

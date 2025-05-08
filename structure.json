@@ -73,6 +73,14 @@
   },
   {
     "table_name": "chapters",
+    "column_name": "descriptions",
+    "is_nullable": "YES",
+    "data_type": "jsonb",
+    "character_maximum_length": null,
+    "column_default": null
+  },
+  {
+    "table_name": "chapters",
     "column_name": "emoji",
     "is_nullable": "YES",
     "data_type": "character varying",
@@ -113,17 +121,17 @@
   },
   {
     "table_name": "chapters",
-    "column_name": "order_index",
-    "is_nullable": "NO",
-    "data_type": "integer",
+    "column_name": "names",
+    "is_nullable": "YES",
+    "data_type": "jsonb",
     "character_maximum_length": null,
     "column_default": null
   },
   {
     "table_name": "chapters",
-    "column_name": "profile_id",
+    "column_name": "order_index",
     "is_nullable": "NO",
-    "data_type": "uuid",
+    "data_type": "integer",
     "character_maximum_length": null,
     "column_default": null
   },
@@ -218,7 +226,7 @@
   {
     "table_name": "life_stories",
     "column_name": "legend_id",
-    "is_nullable": "NO",
+    "is_nullable": "YES",
     "data_type": "uuid",
     "character_maximum_length": null,
     "column_default": null
@@ -834,7 +842,7 @@
   {
     "table_name": "profiles",
     "column_name": "education_level_type_id",
-    "is_nullable": "NO",
+    "is_nullable": "YES",
     "data_type": "uuid",
     "character_maximum_length": null,
     "column_default": null
@@ -842,7 +850,7 @@
   {
     "table_name": "profiles",
     "column_name": "email",
-    "is_nullable": "NO",
+    "is_nullable": "YES",
     "data_type": "character varying",
     "character_maximum_length": 255,
     "column_default": null
@@ -898,7 +906,7 @@
   {
     "table_name": "profiles",
     "column_name": "user_id",
-    "is_nullable": "NO",
+    "is_nullable": "YES",
     "data_type": "uuid",
     "character_maximum_length": null,
     "column_default": null

@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import ChatInputField from '../../components/interaction/ChatInputField'
 import ChatWindow from '../../components/chat/ChatWindow'
 import ChatHeader from '../../components/chat/ChatHeader'
+import remote from '../../data/remote'
 
-const ChapterToggle = ({ title, enabled, onToggle }) => (
+const ChapterToggle = ({ name, enabled, onToggle, orderIndex }) => (
   <div className="flex items-center justify-between mb-2">
-    <span className="text-sm">{title}</span>
+    <span className="text-sm">{name}</span>
     <label className="relative inline-flex items-center cursor-pointer">
       <input
         type="checkbox"
@@ -21,24 +22,24 @@ const ChapterToggle = ({ title, enabled, onToggle }) => (
 
 const CompleteSetup = () => {
   const navigate = useNavigate()
-  const [signupData, setSignupData] = useState(null)
+  const [signupData, setSignupData] = useState(JSON.parse(localStorage.getItem('signupData'))||{})
   const [step, setStep] = useState(1)
   const [education, setEducation] = useState('')
   const [messages, setMessages] = useState([])
-  const [chapters, setChapters] = useState([
-    { id: 1, title: 'Early Childhood', enabled: true },
-    { id: 2, title: 'School Years', enabled: true },
-    { id: 3, title: 'Teenage Years', enabled: true },
-    { id: 4, title: 'College/University', enabled: true },
-    { id: 5, title: 'First Job', enabled: true },
-    { id: 6, title: 'Romantic Relationships', enabled: true },
-    { id: 7, title: 'Marriage', enabled: false },
-    { id: 8, title: 'Children', enabled: false },
-    { id: 9, title: 'Career Growth', enabled: false },
-    { id: 10, title: 'Life Challenges', enabled: false },
-    { id: 11, title: 'Achievements', enabled: false },
-    { id: 12, title: 'Life Lessons', enabled: false },
-  ])
+  const [chapters, setChapters] = useState([])
+
+  useEffect(() => {
+
+    console.log({lifeStoryIdOnLocalStorage: localStorage.getItem('lifeStoryId')})
+    remote.chapters.getAll().then((data) => {
+      console.log({chaptersReceived: data});
+      setChapters(data.map(chapter => ({
+        title: chapter.name,
+        enabled: chapter.is_enabled,
+        ...chapter
+      })))
+    })
+  }, [])
 
   useEffect(() => {
     const data = localStorage.getItem('signupData')
@@ -48,7 +49,8 @@ const CompleteSetup = () => {
       setMessages([
         {
           content: "Welcome! Super good to have you here. Before we start, I just want to make sure we have all the right info.",
-          isUser: false
+          isUser: false,
+          createdAt: new Date()
         },
         {
           content: (
@@ -56,27 +58,29 @@ const CompleteSetup = () => {
               <p className="mb-4">Here's what we have so far:</p>
               <ChatInputField
                 label="Your name or nickname"
-                value={JSON.parse(data).nickname}
-                onChange={(e) => setSignupData({...JSON.parse(data), nickname: e.target.value})}
+                value={signupData.nickname}
+                onChange={({target}) => setSignupData({...signupData, nickname: target.value})}
               />
               <ChatInputField
                 label="Your Email"
                 widthClass="w-[256px]"
-                value={JSON.parse(data).email}
-                onChange={(e) => setSignupData({...JSON.parse(data), email: e.target.value})}
+                value={signupData.email}
+                onChange={({target}) => setSignupData({...signupData, email: target.value})}
               />
               <ChatInputField
                 label="Your loved one's name or nickname"
-                value={JSON.parse(data).lovedOneNickname}
-                onChange={(e) => setSignupData({...JSON.parse(data), lovedOneNickname: e.target.value})}
+                value={signupData.lovedOneNickname}
+                onChange={({target}) => setSignupData({...signupData, lovedOneNickname: target.value})}
               />
             </div>
           ),
-          isUser: false
+          isUser: false,
+          createdAt: new Date()
         },
         {
           content: "Please make sure the info is AOK. You can edit it if needed.",
-          isUser: false
+          isUser: false,
+          createdAt: new Date()
         },
       ])
     }
@@ -94,40 +98,45 @@ const CompleteSetup = () => {
       ...prev,
       {
         content: message,
-        isUser: true
+        isUser: true,
+        senderName: signupData.nickname,
+        createdAt: new Date()
       },
       {
         content: "Perfect. Just so you know, you can add extra information or choose which chapters of your loved one's life you want to explore.",
-        isUser: false
+        isUser: false,
+        createdAt: new Date()
       },
       {
         content: (
           <div>
-            <ChatInputField
+            {/* <ChatInputField
               label="Education Level"
               value={education}
               onChange={(e) => setEducation(e.target.value)}
-            />
+            /> */}
 
             <div className="mt-4">
               <p className="text-sm font-medium text-gray-700 mb-2">Select Chapters to Explore:</p>
               {chapters.map(chapter => (
                 <ChapterToggle
                   key={chapter.id}
-                  title={chapter.title}
-                  enabled={chapter.enabled}
+                  name={chapter.name}
+                  enabled={chapter.is_enabled}
+                  orderIndex={chapter.order_index}
                   onToggle={() => toggleChapter(chapter.id)}
                 />
               ))}
             </div>
           </div>
         ),
-        isUser: false
+        isUser: false,
+        createdAt: new Date()
       }
     ])
   }
 
-  const handleStart = ({message}) => {
+  const handleStart = async ({message}) => {
     setMessages(prev => [
       ...prev,
       {
@@ -135,10 +144,49 @@ const CompleteSetup = () => {
         isUser: true
       }
     ])
+
     // Here you would typically save the final configuration and proceed
     console.log('Starting with:', { signupData, education, chapters })
 
-    /** @TODO later save configuration on Supabase */
+    // Create profile for collector
+    await remote.profile.upsert({profile:{
+      full_name: signupData.nickname,
+      email: signupData.email,
+    }})
+
+    const collectorProfile = await remote.profile.getByEmail({email: signupData.email})
+
+    console.log({collectorProfile})
+
+    const lifeStoryToUpsert = {
+      collector_id: collectorProfile.id,
+      title: `${signupData.lovedOneNickname}'s story`,
+      description: `${signupData.lovedOneNickname}'s life story`,
+    }
+
+    // Get life story ID from local storage
+    const lifeStoryId = localStorage.getItem('lifeStoryId')
+    if(lifeStoryId) {
+      console.log({lifeStoryId})
+      lifeStoryToUpsert.id = lifeStoryId
+    }
+
+    const lifeStory = await remote.lifeStory.upsert({lifeStory: lifeStoryToUpsert})
+
+    // If new life story created, save ID to local storage
+    if(lifeStory) {
+      localStorage.setItem('lifeStoryId', lifeStory.id)
+    }
+
+    // For each chapter the Collector has enabled, create a life story chapter
+    chapters.filter(chapter => chapter.enabled).map(async (chapter) => {
+      console.log({chapter})
+      await remote.lifeStoryChapter.upsert({lifeStoryChapter:{
+        life_story_id: lifeStory ? lifeStory.id : lifeStoryId,
+        chapter_id: chapter.id,
+        order_index: chapter.order_index
+      }})
+    })
 
     // Move User to Invitation screen
     navigate('/invitation')

@@ -12,8 +12,9 @@ const ChatWindow = ({ messages, className = '' }) => {
   }
 
   useEffect(() => {
+    console.log({messages})
     // Only process new messages that haven't been rendered yet
-    const newMessages = messages.filter(msg => !renderedMessages.includes(msg))
+    const newMessages = messages.filter(msg => msg && !renderedMessages.includes(msg))
 
     if (newMessages.length > 0) {
       // Add messages one by one with delay
@@ -33,11 +34,14 @@ const ChatWindow = ({ messages, className = '' }) => {
       ref={chatContainerRef}
       className={`py-4 space-y-4 min-h-[512px] max-h-[calc(100vh-300px)] overflow-y-auto pr-2 ${className}`}
     >
+      {console.log({renderedMessages})}
       {renderedMessages.map((message, index) => (
         <ChatMessage
           key={index}
           content={message.content}
           isUser={message.isUser}
+          createdAt={message.createdAt}
+          senderName={message.senderName}
           delay={0} // No delay for already rendered messages
         />
       ))}
